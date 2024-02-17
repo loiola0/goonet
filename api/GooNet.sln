@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooNet.Api", "GooNet.Api\GooNet.Api.csproj", "{6CD17120-B301-4AB6-A87C-F9A478263D38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooNet.Application", "GooNet.Application\GooNet.Application.csproj", "{3D3D0325-6A18-4170-9F9F-B4BB5CA73106}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GooNet.Domain", "GooNet.Domain\GooNet.Domain.csproj", "{60E476EE-77EF-4B4C-98CC-1BE781C16653}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{6CD17120-B301-4AB6-A87C-F9A478263D38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6CD17120-B301-4AB6-A87C-F9A478263D38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6CD17120-B301-4AB6-A87C-F9A478263D38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6CD17120-B301-4AB6-A87C-F9A478263D38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D3D0325-6A18-4170-9F9F-B4BB5CA73106}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D3D0325-6A18-4170-9F9F-B4BB5CA73106}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D3D0325-6A18-4170-9F9F-B4BB5CA73106}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D3D0325-6A18-4170-9F9F-B4BB5CA73106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{60E476EE-77EF-4B4C-98CC-1BE781C16653}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{60E476EE-77EF-4B4C-98CC-1BE781C16653}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{60E476EE-77EF-4B4C-98CC-1BE781C16653}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{60E476EE-77EF-4B4C-98CC-1BE781C16653}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
