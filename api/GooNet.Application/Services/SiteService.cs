@@ -29,33 +29,33 @@ public class SiteService : ISiteService
     {
         ValidateSearchRequest(request);
 
-        var indexSite = _configuration["IndexSites"];
+        var indexSite = _configuration["INDEX_SITES"];
 
-        var result = await _elasticClient.SearchAsync<Site>(s =>
-            s.Index(indexSite)
-                .Size(request.TotalItems)
-                .From((request.Page - 1) * request.TotalItems)
-                .Query(q =>
-                    q.Bool(b =>
-                        b.Should(
-                            // Procura por termos que correspondam parcialmente ao título
-                            should => should.Match(m => m.Field(f => f.Title)
-                                .Query(request.Title).Fuzziness(Fuzziness.Auto)),
-                            // Procura por frases exatas no título
-                            should => should.MatchPhrase(m => m.Field(f => f.Title)
-                                .Query(request.Title))
-                        )
-                    )
+        var result = await _elasticClient.SearchAsync<Site>(s => s
+            .Index(indexSite)
+            .Size(request.TotalItems) // Total de items a serem retornados.
+            .From((request.Page) * request.TotalItems) // Página a ser buscada.
+            .Query(q => q
+                .Match(m => m // É usado para pesquisar por uma ou mais palavras em um campo de texto.
+                    .Field(f => f.Title)
+                    .Query(request.Title)
+                    .Fuzziness(Fuzziness.Auto) // Tolerância a erros de digitação
+                    .PrefixLength(1) // Prefixo mínimo -  por exemplo, se fosse 3, a palavra "elephant" será tratada como "ele" para fins de pesquisa.
+                    .MaxExpansions(10) // Número máximo de expansões. Controlar o número de variações de um termo que são consideradas na pesquisa
+                    .Operator(Operator.Or) // Apenas um dos termos de busca precisa estar presente no campo para que um documento seja considerado correspondente.
                 )
+            )
+            .Sort(sort => sort
+                .Descending("_score")
+            )
         );
-
 
         if (!result.IsValid)
             throw new Exception("Error during search");
 
-        var sites = _mapper.Map<List<SiteResponse>>(result.Documents);
+        var sitesMapped = _mapper.Map<List<SiteResponse>>(result.Documents);
 
-        return sites;
+        return sitesMapped;
     }
 
     private static void ValidateSearchRequest(SearchSitePagenedRequest request)

@@ -1,20 +1,18 @@
 using Nest;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
-namespace GooNet.Application.Configurations
+namespace GooNet.Api.Configurations
 {
     public static class ElasticSearchConfig
     {
         public static void AddElasticsearch(this IServiceCollection services, IConfiguration configuration)
         {
-            var user = configuration["UserName"];
+            var user = configuration["USER_NAME"];
 
-            var password = configuration["Password"];
+            var password = configuration["PASSWORD"];
 
-            var uri = configuration["Uri"];
+            var uri = configuration["URI"];
 
-            var indexDefault = configuration["IndexSites"];
+            var indexDefault = configuration["INDEX_SITES"];
 
             var settings = new ConnectionSettings(new Uri(uri))
                 .BasicAuthentication(user, password)

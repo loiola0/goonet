@@ -1,7 +1,6 @@
-using GooNet.Application.Configurations;
+using GooNet.Api.Configurations;
 using GooNet.Application.Interfaces;
 using GooNet.Application.Services;
-using GooNet.Configurations;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,6 @@
 using GooNet.Application.AutoMapper;
 
-namespace GooNet.Configurations;
+namespace GooNet.Api.Configurations;
 
 public static class AutoMapperConfig
 {

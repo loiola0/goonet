@@ -2,14 +2,12 @@ namespace GooNet.Domain.Entities;
 
 public class Site
 {
-    public Site(int id, string title, string link)
+    public Site()
     {
-        Id = id;
-        Title = title;
-        Link = link;
+        Title = string.Empty;
+        
+        Link = string.Empty;
     }
-
-    public int Id { get; set; }
     
     public string Title { get; set; }
     
